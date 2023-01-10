@@ -1,0 +1,168 @@
+open git bash
+git-scm.com/docs/git-log
+
+basic linux commands:
+<pwd> : present working directory
+<ls>: list of all files and folders in directory
+<cd \c> : change directory
+<cd Machine\ Learning > backslash followed by space denotes spaces between folder name if any
+< vim anyfile.txt> to create new file and edit
+enter the details and press esc
+: wq to save and exit 
+<mkdir directory_name/> to make a new folder
+<cp filename.txt folder/> to copy file to another folder
+<mv filename.txt folder/> to move file to folder 
+
+Git commands :
+Configure git
+set username
+<git config -- global user.name "siddh">
+
+set email
+<git config -- global user.email "siddh@...com">
+
+view the set credentials 
+<git config --list>
+<git config user.name>
+<git config user.email>
+
+checking status: repository present/not present
+<git status> (no repo found)
+
+initializing the repo:
+<git init> 
+
+<git status> (repo available - files available for staging)
+
+adding all files to stage
+<git add --a>
+<git add .>
+
+adding particular file to stage
+<git add filename.extension>
+git status (files staged- commit to be made)
+
+commiting the files with message:
+<git commit -m "Initial commit">
+
+
+to check who commited what and at what time?
+<git log>
+ to check logs along with the changes made:logs and difference are shown together
+<git log -p>
+check logs difference and number of commits together(last 3 commits)
+<git log -p -3> 
+to show quick summary of changes and logs 
+<git log --stat>
+to prettify and show logs in one line 
+<git log --pretty = oneline>
+to prettify and show logs in short/full
+<git log --pretty = short>
+<git log --pretty = full>
+logs from past n days
+<git log --since= 2.days>
+<git log --since= 2.weeks>
+<git log --since= 2.months>
+<git log --since= 2.years>
+
+to merge the commits and change the commit message of previous commits
+git commit --amend
+to insert values in vim text box press i
+to exit press esc> :wq> enter
+
+to end any git repository
+<rm -rf .git> (space to be added before dot remember)
+
+cloning a repo - pull an online repo
+<git clone "https://github.com/tensorflow/tensorflow.git"> set_optional_foldername
+
+<git log> - check the commits
+<q> - quits
+
+to ignore the files from showing in untracked :
+< touch .gitignore>
+add  file names in .gitignore to ignore them from tracking
+
+previously if some files were commited they will still show in untrack after adding to ignore
+to avoid that 
+<git rm --cached file.ext>
+
+ 
+to ignore all the log files
+add  file names in .gitignore as *.log 
+
+to ignore the folder 
+add file name in .git ignore as folder_name/
+
+to ignore the root folder but show the internal folder of same name in staging
+add file name in .git ignore as /folder_name/
+
+compares working directory with the staging area.
+<git diff>
+
+compare staging area with commits
+<git diff --staged>
+
+commit directly skipping the stagging part
+to remember: untracked file not get a comit (new file created but not staged)
+only modified file will get a commit
+<git commit -a -m "message">
+
+delete files using git : 
+gets stagged on its own/ no need to manually add to stage.
+if deleted outside git file stays untracked.
+<git rm file.ext> 
+
+rename file/MOVE file(same operations): file gets stagged on its own
+<git mv oldname.txt newname.txt>
+
+To restore from previous commit:
+(Note: 
+Files in stagging area are not affected by checkout commit
+1. unstage the file using restore cmd
+2. then checkout commit to previous state)
+<git checkout -- file.ext> --SINGLE FILE(STAGGED FILES REMAINS UNCHANGED)
+
+Get all files in present working directory to the previous state
+(Note : Files in staging area are also changed. Its a full commit)
+<git checkout -f> - ALL FILES (STAGGED FILES ARE ALSO CHANGED)
+
+Restore files from staging area
+git restore --staged data3.txt
+
+Restore files form unstagged
+git restore filename.txt
+
+========================ADDING FILES TO REPOSITORY==========================
+
+<git remote> # 
+# url from github
+<git remote add origin https://github.com/DevsidB/Gittutorialdemo.git> shift +insert to paste 
+# displays pull and push url
+<git remote -v> 
+
+add the ssh file to the repo:
+link : https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
+# push the commited file to remote:
+git push -u origin master
+ 
+==========================SETTING UP THE ALIAS NAME FOR GIT CODE================
+# set alias for <git status> as <git st>
+<git config --global alias.st status>        --- git status> git st
+<git config --global alias.last 'log -p -1'> --- git log -p -1 > git last 
+<git config --global alias.unstage 'restore --staged --'>  
+
+========================UNDERSTANDING BRANCHING=============================
+# to check the existing branches
+<git branch> 
+
+# Create a new branch 
+<git checkout -b branchname>
+
+# switch branches
+<git checkout branchname> 
+
+
+
+
